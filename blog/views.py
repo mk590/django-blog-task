@@ -52,7 +52,7 @@ def blog_detail(request, pk):
     
 from .forms import *
     
-@api_view(['GET','POST'])
+# @api_view(['GET','POST'])
 def Form(request):
     if request.method=='POST':
         formdata = blogForm(request.POST,request.FILES)
