@@ -49,3 +49,17 @@ def blog_detail(request, pk):
     elif request.method == 'DELETE':
         Blog.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+from .forms import *
+    
+@api_view(['GET','POST'])
+def Form(request):
+    if request.method=='POST':
+        formdata = blogForm(request.POST)
+        if formdata.is_valid():
+            formdata.save()
+            return Response("saved")
+    
+    content = blogForm()
+    info = {'content':content}
+    return render(request,"new_blog.html",info)
