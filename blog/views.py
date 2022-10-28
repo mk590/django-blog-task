@@ -59,6 +59,7 @@ def Form(request):
         if formdata.is_valid():
             formdata.save()
             return Response("saved")
+        return Response("not saved")
     
     content = blogForm()
     info = {'content':content}
