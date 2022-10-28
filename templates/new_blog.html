@@ -7,7 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="">
+    {% comment %} <form action=""> {% endcomment %}
+    {% comment %} <form action="" enctype="multipart/form-data" action = "{% url 'Form' %}"> {% endcomment %}
+    <form action="" enctype="multipart/form-data" >
+        {% csrf_token %}
     {{content.title}}
     {{content.description}}
     {{content.content}}
