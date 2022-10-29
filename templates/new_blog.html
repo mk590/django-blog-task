@@ -7,16 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    {% comment %} <form action=""> {% endcomment %}
-    {% comment %} <form action="" enctype="multipart/form-data" action = "{% url 'Form' %}"> {% endcomment %}
-    <form action="" enctype="multipart/form-data" >
-        {% csrf_token %}
-    {{content.title}}
-    {{content.description}}
-    {{content.content}}
-    {{content.Tags}}
-    {{content.Img}}
-    <button type="submit">Submit</button>
+
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ content }}
+    <input type="submit" value="Submit">
 </form>
 </body>
 </html>

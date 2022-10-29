@@ -16,7 +16,7 @@ class Blog(models.Model):
     Tags=models.ManyToManyField(Tags)
     User=models.ForeignKey(User,on_delete=models.CASCADE)
     date_created=models.DateTimeField(auto_now_add=True)
-    Img= models.ImageField(upload_to='images')
+    # Img= models.ImageField(upload_to='images')
     
     class Meta:
         # orderning=['date_created']

@@ -52,10 +52,10 @@ def blog_detail(request, pk):
     
 from .forms import *
     
-# @api_view(['GET','POST'])
+@api_view(['GET','POST'])
 def Form(request):
     if request.method=='POST':
-        formdata = blogForm(request.POST,request.FILES)
+        formdata = blogForm(request.POST)
         if formdata.is_valid():
             formdata.save()
             return Response("saved")
@@ -64,3 +64,8 @@ def Form(request):
     content = blogForm()
     info = {'content':content}
     return render(request,"new_blog.html",info)
+
+
+# AssertionError at /form/
+# .accepted_renderer not set on Response
+# this was the error i got when i was doing withoit the api decorater in this case 
