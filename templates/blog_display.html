@@ -9,6 +9,11 @@
 <body>
     
     <h2>hello </h2>
+    <button type="submit" class="btn btn-secondary" style="float: right;">
+        <a href="{% url 'Form' %}" style="color:white"> New Blog </a>
+    </button>
+
+    {% comment %}  the below one is incorrect {% endcomment %}
     <h4>{{ info.title }} </h4>
     <h4>{{ info.description }}</h4>
     <h4>{{ info.content}}</h4>

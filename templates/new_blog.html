@@ -8,8 +8,12 @@
 </head>
 <body>
 
+    <button type="submit" class="btn btn-secondary" style="float: right;">
+        <a href="{% url 'show' %}" style="color:white"> Home Page </a>
+    </button>
 
 <form action="" method="post">
+
     {% csrf_token %}
     {{ content }}
     <input type="submit" value="Submit">
