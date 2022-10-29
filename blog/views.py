@@ -31,23 +31,24 @@ def blog_detail(request, pk):
     Retrieve, update or delete a blog.
     """
     try:
-        Blog = Blog.objects.get(pk=pk)
-    except Blog.DoesNotExist:
+        # Blog = Blog.objects.get(pk=pk)
+        blog = Blog.objects.get(pk=pk)
+    except blog.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        serializer = blogSerializer(Blog)
+        serializer = blogSerializer(blog)
         return Response(serializer.data)
 
     elif request.method == 'PUT':
-        serializer = blogSerializer(Blog, data=request.data)
+        serializer = blogSerializer(blog, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'DELETE':
-        Blog.delete()
+        blog.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
 from .forms import *
