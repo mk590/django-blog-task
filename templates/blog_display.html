@@ -15,5 +15,14 @@
     <h4>{{ info.Tags }}</h4>
     <h4>{{ info.User }}</h4>
     <h4>{{ info.date_created }}</h4>
+
+    {% for i in info %}
+    <h4>{{ i.title }} </h4>
+    <h4>{{ i.description }}</h4>
+    <h4>{{ i.content}}</h4>
+    <h4>{{ i.Tags }}</h4>
+    <h4>{{ i.User }}</h4>
+    <h4>{{ i.date_created }}</h4>
+    {% endfor %}
 </body>
 </html>
