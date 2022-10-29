@@ -69,3 +69,9 @@ def Form(request):
 # AssertionError at /form/
 # .accepted_renderer not set on Response
 # this was the error i got when i was doing withoit the api decorater in this case 
+
+
+# @api_view(['GET','POST'])
+def show(request):
+     blogs = Blog.objects.all()
+     return render(request,"blog_display.html",{'info':blogs})
