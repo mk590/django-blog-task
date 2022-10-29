@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
 # Create your views here.
 from rest_framework import status
@@ -58,7 +58,9 @@ def Form(request):
         formdata = blogForm(request.POST)
         if formdata.is_valid():
             formdata.save()
-            return Response("saved")
+            # return Response("saved")
+            # return render()
+            return redirect("/show")
         return Response("not saved")
     
     content = blogForm()
