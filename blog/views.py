@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 
 # Create your views here.
 from rest_framework import status
@@ -78,3 +78,40 @@ def Form(request):
 def show(request):
      blogs = Blog.objects.all()
      return render(request,"blog_display.html",{'info':blogs})
+ 
+ 
+def View_blog(request,pk):
+    # try:
+        content = Blog.objects.get(pk= pk)
+        info = {'content' : content }
+        return render(request,"view_blog.html",info)
+    # except:
+    #     return HttpResponse("Some error occurred while processing your request")
+    
+    
+    # how the updation works
+def Update(request,pk):
+    try:
+        if request.method == "POST":
+            particularBlog = Blog.objects.get(pk= pk)
+            update = blogForm(request.POST, request.FILES ,instance = particularBlog)
+            if update.is_valid():
+                update.save()
+                return redirect("/show")
+            
+        particularBlog = Blog.objects.get(pk= pk)
+        content = blogForm(instance=particularBlog)
+        info = {'content':content}
+        # return render(request,"update.html",info)
+        return render(request,"new_blog.html",info)
+    except:
+        return HttpResponse("Some error occurred while processing your request")
+
+
+def Delete(request,pk):
+    try:
+        particularBlog = Blog.objects.get(pk= pk)
+        particularBlog.delete()
+        return redirect("/show")
+    except:
+        return 
