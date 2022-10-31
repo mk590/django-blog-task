@@ -28,6 +28,34 @@
     <h4>{{ i.Tags }}</h4>
     <h4>{{ i.User }}</h4>
     <h4>{{ i.date_created }}</h4>
+    {% comment %} <a class="btn btn-primary" href = "{% url 'View_blog' blog.pk %}">View</a> {% endcomment %}
+    
+    {% comment %} <a class="btn btn-primary" href = "{% url 'update-blog' blog.pk %}">Update</a>
+    <a class="btn btn-primary" href = "{% url 'delete-blog' blog.pk %}">Delete</a> {% endcomment %}
+    {% comment %} <a class="btn btn-primary" href = "{% url 'update-blog' Blog.pk %}">Update</a>
+    <a class="btn btn-primary" href = "{% url 'delete-blog' Blog.pk %}">Delete</a> {% endcomment %}
+    {% comment %} <a class="btn btn-primary" href = "{% url 'update-blog'  %}">Update</a>
+    <a class="btn btn-primary" href = "{% url 'delete-blog'  %}">Delete</a> {% endcomment %}
+
+    {% comment %}
+    NoReverseMatch at /show/
+     Reverse for 'update-blog' not found. 'update-blog' is not a valid view function or pattern name.  {% endcomment %}
+
+    {% comment %} <a class="btn btn-primary" href = "{% url 'Update'  %}">Update</a>
+    <a class="btn btn-primary" href = "{% url 'Delete'  %}">Delete</a> {% endcomment %}
+    
+
+
+    {% comment %} <a class="btn btn-primary" href = "{% url 'Update' pk=Blog.pk %}">Update</a>
+    <a class="btn btn-primary" href = "{% url 'Delete' pk=Blog.pk %}">Delete</a>
+    Reverse for 'Update' with keyword arguments '{'pk': ''}' not found. 1 pattern(s) tried: ['update\\-blog/(?P<pk>[0-9]+)\\Z'] {% endcomment %}
+    
+    
+        {% comment %} <a class="btn btn-primary" href = "{% url 'Update' pk=i.pk %}">Update</a>
+    <a class="btn btn-primary" href = "{% url 'Delete' pk=i.pk %}">Delete</a> {% endcomment %}
+        <a class="btn btn-primary" href = "{% url 'Update' i.pk %}">Update</a>
+    <a class="btn btn-primary" href = "{% url 'Delete' i.pk %}">Delete</a>
+    
     {% endfor %}
 </body>
 </html>
