@@ -56,7 +56,8 @@ from .forms import *
 @api_view(['GET','POST'])
 def Form(request):
     if request.method=='POST':
-        formdata = blogForm(request.POST)
+        # formdata = blogForm(request.POST)
+        formdata = blogForm(request.POST,request.FILES)
         if formdata.is_valid():
             formdata.save()
             # return Response("saved")
