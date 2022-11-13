@@ -107,7 +107,9 @@
                     {% for blog in info %}
                     <div class="item mb-4">
                         <div class="card border-0">
-                            <img class="card-img-top" src=" {{ blog.img.url}}" alt="Card image cap">
+                            {% if blog.Img %}
+                            <img class="card-img-top" src=" {{ blog.Img.url}}" alt="Card image cap">
+                            {% endif %}
                             <div class="card-body">
                                 <h4 class="card-title">{{blog.title}}</h4>
                                 {% comment %} <p>{{blog.author.name}}</p> {% endcomment %}
