@@ -7,7 +7,6 @@ urlpatterns = [
    path('show/',views.show,name='show'),
    # path('api-form/blogs/<int:pk>',views.blog_detail,name='blog_detail'),
    path('api-form/blogs/<int:pk>/',views.blog_detail,name='blog_detail'),
-   path('show-blog/<int:pk>',views.View_blog,name='View_blog'),
    path('update-blog/<int:pk>',views.Update,name='Update'),
    path('delete-blog/<int:pk>',views.Delete,name='Delete'),
 ]

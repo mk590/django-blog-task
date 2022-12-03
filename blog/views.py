@@ -79,20 +79,20 @@ def Form(request):
 def show(request):
      blogs = Blog.objects.all()
      return render(request,"blog_display.html",{'info':blogs})
- 
- 
+
+    
 def View_blog(request,pk):
-    # try:
+    try:
         content = Blog.objects.get(pk= pk)
         info = {'content' : content }
         return render(request,"view_blog.html",info)
-    # except:
-    #     return HttpResponse("Some error occurred while processing your request")
-    
+    except:
+        return HttpResponse("Some error occurred while processing your request")
+
     
     # how the updation works
 def Update(request,pk):
-    try:
+    # try:
         if request.method == "POST":
             particularBlog = Blog.objects.get(pk= pk)
             update = blogForm(request.POST, request.FILES ,instance = particularBlog)
@@ -103,10 +103,10 @@ def Update(request,pk):
         particularBlog = Blog.objects.get(pk= pk)
         content = blogForm(instance=particularBlog)
         info = {'content':content}
-        # return render(request,"update.html",info)
-        return render(request,"new_blog.html",info)
-    except:
-        return HttpResponse("Some error occurred while processing your request")
+        return render(request,"update_blog.html",info)
+        # return render(request,"new_blog.html",info)
+    # except:
+    #     return HttpResponse("Some error occurred while processing your request")
 
 
 def Delete(request,pk):

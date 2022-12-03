@@ -112,10 +112,9 @@
                             {% endif %}
                             <div class="card-body">
                                 <h4 class="card-title">{{blog.title}}</h4>
-                                {% comment %} <p>{{blog.author.name}}</p> {% endcomment %}
                                 <p>{{blog.User}}</p>
                                 <p class="card-text"> {{blog.description}} </p>
-                                <a class="btn btn-primary" href = "{% url 'View_blog' blog.pk %}">View</a>
+                                <p class="card-text"> {{blog.content}} </p>
                                 <a class="btn btn-primary" href = "{% url 'Update' blog.pk %}">Update</a>
                                 <a class="btn btn-primary" href = "{% url 'Delete' blog.pk %}">Delete</a>
                             </div>
