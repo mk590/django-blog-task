@@ -69,6 +69,18 @@ def Form(request):
     info = {'content':content}
     return render(request,"new_blog.html",info)
 
+def Add_User(request):
+    if request.method=='POST':
+        formdata = Add_UserForm(request.POST)
+        if formdata.is_valid():
+            formdata.save()
+            return redirect("/show")
+        return Response("not saved")
+    
+    content = Add_UserForm()
+    info = {'content':content}
+    return render(request,"new_user.html",info)
+
 
 # AssertionError at /form/
 # .accepted_renderer not set on Response
